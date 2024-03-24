@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/colors.dart';
-import 'package:personalcv/constants/nav.items.dart';
+import 'package:personalcv/constants/size.dart';
+import 'package:personalcv/widgets/header.desktop.dart';
+import 'package:personalcv/widgets/header.mobile.dart';
+
+import '../widgets/drawer.mobile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,73 +14,60 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: CustomColor.scaffoldBg,
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          // MAIN
-          Container(
-            height: 60,
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.transparent,
-                    CustomColor.bgLight1,
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        key: scaffoldKey,
+        backgroundColor: CustomColor.scaffoldBg,
+        endDrawer: constraints.maxWidth >= kMinDesktopWidth
+            ? null
+            : const DrawerMobile(),
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            // MAIN
+            if (constraints.maxWidth >= kMinDesktopWidth)
+              const HeaderDesktop()
+            else
+              HeaderMobile(
+                onLogoTap: () {},
+                onMenuTap: () {
+                  scaffoldKey.currentState?.openEndDrawer();
+                },
+              ),
+            Container(
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                          "Hi, \nI'm Fares Masmoudi\nA Software Engineering Student\nwith a strong passion for technology and innovation"),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text("Contact Me"),
+                      ),
+                    ],
+                  ),
+                  Image.asset('assets/profile_image.png'),
                 ],
               ),
-              borderRadius: BorderRadius.circular(100),
             ),
-            child: Row(
-              children: [
-                Container(
-                  height: 150, // specify the height
-                  width: 150, // specify the width
-                  child: Image.asset(
-                    'assets/iit_logo.png',
-                    color: Colors.transparent,
-                    colorBlendMode: BlendMode.dst
-                  ),
-                ),
-                Spacer(),
-                for(int i = 0; i < navTitles.length; i++)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: TextButton(
-                        onPressed: (){},
-                        child: Text(navTitles[i])),
-                  ),
-              ],
-            ),
-          ),
-          // SKILLS
-          Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey
-          ),
-          // PROJECTS
-          Container(
-              height: 500,
-              width: double.maxFinite
-          ),
-          // CONTACT
-          Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey
-          ),
-          // FOOTER
-          Container(
-              height: 500,
-              width: double.maxFinite
-          )
-        ],
-      ),
-    );
+            // SKILLS
+            Container(
+                height: 500, width: double.maxFinite, color: Colors.blueGrey),
+            // PROJECTS
+            Container(height: 500, width: double.maxFinite),
+            // CONTACT
+            Container(
+                height: 500, width: double.maxFinite, color: Colors.blueGrey),
+            // FOOTER
+            Container(height: 500, width: double.maxFinite)
+          ],
+        ),
+      );
+    });
   }
 }
