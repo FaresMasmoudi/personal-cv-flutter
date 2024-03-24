@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personalcv/pages/home.page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal CV',
-      home: ,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      title: 'Fares Masmoudi',
+      home: const HomePage(),
     );
   }
 }
