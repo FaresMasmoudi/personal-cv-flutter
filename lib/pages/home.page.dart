@@ -3,6 +3,8 @@ import 'package:personalcv/constants/colors.dart';
 import 'package:personalcv/constants/size.dart';
 import 'package:personalcv/widgets/header.desktop.dart';
 import 'package:personalcv/widgets/header.mobile.dart';
+import 'package:personalcv/widgets/main.desktop.dart';
+import 'package:personalcv/widgets/main.mobile.dart';
 
 import '../widgets/drawer.mobile.dart';
 
@@ -18,6 +20,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldKey,
@@ -38,23 +43,11 @@ class _HomePageState extends State<HomePage> {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
               ),
-            Container(
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      const Text(
-                          "Hi, \nI'm Fares Masmoudi\nA Software Engineering Student\nwith a strong passion for technology and innovation"),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text("Contact Me"),
-                      ),
-                    ],
-                  ),
-                  Image.asset('assets/profile_image.png'),
-                ],
-              ),
-            ),
+            // const MainDesktop(),
+            if (constraints.maxWidth >= kMinDesktopWidth)
+              const MainDesktop()
+            else
+              const MainMobile(),
             // SKILLS
             Container(
                 height: 500, width: double.maxFinite, color: Colors.blueGrey),
