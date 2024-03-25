@@ -1,6 +1,10 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
+import 'package:personalcv/constants/size.dart';
 
 import '../constants/colors.dart';
+import '../constants/sns.links.dart';
 import 'custom.text.field.dart';
 
 class ContactSection extends StatelessWidget {
@@ -23,30 +27,23 @@ class ContactSection extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 700),
-            child: Row(
-              children: [
-                // nom
-                Flexible(
-                    child: CustomTextField(
-                  hintText: 'Votre nom',
-                )),
-                const SizedBox(width: 15),
-                //email
-                Flexible(
-                    child: CustomTextField(
-                  hintText: 'Votre email',
-                ))
-              ],
-            ),
-          ),
+              constraints: const BoxConstraints(maxWidth: 700, maxHeight: 100),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth >= kMinDesktopWidth) {
+                    return buildNameEmailFieldDesktop();
+                  } else {
+                    return buildNameEmailFieldMobile();
+                  }
+                },
+              )),
           const SizedBox(height: 15),
           // message
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 700),
             child: CustomTextField(
               hintText: 'Votre message',
-              maxLines: 20,
+              maxLines: 16,
             ),
           ),
           const SizedBox(height: 20),
@@ -70,19 +67,70 @@ class ContactSection extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: [
               InkWell(
-                  onTap: () {}, child: Image.asset('github.png', width: 28)),
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.github]);
+                  },
+                  child: Image.asset('github.png', width: 28)),
               InkWell(
-                  onTap: () {}, child: Image.asset('linkedin.png', width: 28)),
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.linkedIn]);
+                  },
+                  child: Image.asset('linkedin.png', width: 28)),
               InkWell(
-                  onTap: () {}, child: Image.asset('facebook.png', width: 28)),
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.facebook]);
+                  },
+                  child: Image.asset('facebook.png', width: 28)),
               InkWell(
-                  onTap: () {}, child: Image.asset('instagram.png', width: 28)),
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.instagram]);
+                  },
+                  child: Image.asset('instagram.png', width: 28)),
               InkWell(
-                  onTap: () {}, child: Image.asset('telegram.png', width: 28)),
+                  onTap: () {
+                    js.context.callMethod('open', [SnsLinks.telegram]);
+                  },
+                  child: Image.asset('telegram.png', width: 28)),
             ],
           )
         ],
       ),
+    );
+  }
+
+  Row buildNameEmailFieldDesktop() {
+    return Row(
+      children: [
+        // nom
+        Flexible(
+            child: CustomTextField(
+          hintText: 'Votre nom',
+        )),
+        const SizedBox(width: 15),
+        //email
+        Flexible(
+            child: CustomTextField(
+          hintText: 'Votre email',
+        ))
+      ],
+    );
+  }
+
+  Column buildNameEmailFieldMobile() {
+    return Column(
+      children: [
+        // nom
+        Flexible(
+            child: CustomTextField(
+          hintText: 'Votre nom',
+        )),
+        const SizedBox(height: 15),
+        //email
+        Flexible(
+            child: CustomTextField(
+          hintText: 'Votre email',
+        ))
+      ],
     );
   }
 }
