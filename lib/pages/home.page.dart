@@ -5,6 +5,7 @@ import 'package:personalcv/widgets/header.desktop.dart';
 import 'package:personalcv/widgets/header.mobile.dart';
 import 'package:personalcv/widgets/main.desktop.dart';
 import 'package:personalcv/widgets/main.mobile.dart';
+import 'package:personalcv/widgets/projects.section.dart';
 
 import '../widgets/drawer.mobile.dart';
 import '../widgets/skills.desktop.dart';
@@ -76,11 +77,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            const SizedBox(height: 30),
             // PROJECTS
-            Container(height: 500, width: double.maxFinite),
+            const ProjectsSection(),
+
+            const SizedBox(height: 30),
             // CONTACT
-            Container(
-                height: 500, width: double.maxFinite, color: Colors.blueGrey),
+
             // FOOTER
             Container(height: 500, width: double.maxFinite)
           ],
