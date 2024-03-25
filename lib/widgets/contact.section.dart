@@ -70,27 +70,27 @@ class ContactSection extends StatelessWidget {
                   onTap: () {
                     js.context.callMethod('open', [SnsLinks.github]);
                   },
-                  child: Image.asset('github.png', width: 28)),
+                  child: Image.asset('assets/github.png', width: 28)),
               InkWell(
                   onTap: () {
                     js.context.callMethod('open', [SnsLinks.linkedIn]);
                   },
-                  child: Image.asset('linkedin.png', width: 28)),
+                  child: Image.asset('assets/linkedin.png', width: 28)),
               InkWell(
                   onTap: () {
                     js.context.callMethod('open', [SnsLinks.facebook]);
                   },
-                  child: Image.asset('facebook.png', width: 28)),
+                  child: Image.asset('assets/facebook.png', width: 28)),
               InkWell(
                   onTap: () {
                     js.context.callMethod('open', [SnsLinks.instagram]);
                   },
-                  child: Image.asset('instagram.png', width: 28)),
+                  child: Image.asset('assets/instagram.png', width: 28)),
               InkWell(
                   onTap: () {
                     js.context.callMethod('open', [SnsLinks.telegram]);
                   },
-                  child: Image.asset('telegram.png', width: 28)),
+                  child: Image.asset('assets/telegram.png', width: 28)),
             ],
           )
         ],
