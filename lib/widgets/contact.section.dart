@@ -3,7 +3,7 @@ import 'package:personalcv/constants/size.dart';
 import 'package:personalcv/widgets/web_view_screen.dart';
 
 import '../constants/colors.dart';
-import '../constants/sns.links.dart';
+import '../constants/contact_links.dart';
 import 'custom_text_field.dart';
 
 class ContactSection extends StatelessWidget {
@@ -71,7 +71,7 @@ class ContactSection extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            WebViewScreen(url: SnsLinks.github),
+                            WebViewScreen(url: ContactLinks.github),
                       ),
                     );
                   },
@@ -82,7 +82,7 @@ class ContactSection extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            WebViewScreen(url: SnsLinks.linkedIn),
+                            WebViewScreen(url: ContactLinks.linkedIn),
                       ),
                     );
                   },
@@ -93,7 +93,7 @@ class ContactSection extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            WebViewScreen(url: SnsLinks.facebook),
+                            WebViewScreen(url: ContactLinks.facebook),
                       ),
                     );
                   },
@@ -104,7 +104,7 @@ class ContactSection extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            WebViewScreen(url: SnsLinks.instagram),
+                            WebViewScreen(url: ContactLinks.instagram),
                       ),
                     );
                   },
@@ -115,7 +115,7 @@ class ContactSection extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            WebViewScreen(url: SnsLinks.telegram),
+                            WebViewScreen(url: ContactLinks.telegram),
                       ),
                     );
                   },

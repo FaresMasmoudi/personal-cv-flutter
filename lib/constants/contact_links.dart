@@ -1,4 +1,4 @@
-class SnsLinks {
+class ContactLinks {
   static const String github = "https://github.com/FaresMasmoudi";
   static const String linkedIn =
       "https://www.linkedin.com/in/fares-masmoudi-ba156b268/";

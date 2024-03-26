@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-import '../constants/nav.items.dart';
+import '../constants/nav_items.dart';
 
 class DrawerMobile extends StatelessWidget {
   const DrawerMobile({super.key, required this.onNavItemTap});

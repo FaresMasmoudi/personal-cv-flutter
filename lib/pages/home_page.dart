@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/colors.dart';
-import 'package:personalcv/constants/sns.links.dart';
+import 'package:personalcv/constants/contact_links.dart';
 import 'package:personalcv/widgets/contact.section.dart';
 import 'package:personalcv/widgets/header.dart';
 import 'package:personalcv/widgets/main.dart';
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => WebViewScreen(url: SnsLinks.cv),
+          builder: (context) => WebViewScreen(url: ContactLinks.cv),
         ),
       );
       return;
