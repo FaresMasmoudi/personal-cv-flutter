@@ -29,66 +29,80 @@ class _HomePageState extends State<HomePage> {
     final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
     return LayoutBuilder(builder: (context, constraints) {
-      return Scaffold(
-        key: scaffoldKey,
-        backgroundColor: CustomColor.scaffoldBg,
-        endDrawer: DrawerMobile(onNavItemTap: (int navIndex) {
-          // call function
-          scaffoldKey.currentState?.closeEndDrawer();
-          scrollToSection(navIndex);
-        }),
-        body: SingleChildScrollView(
-          controller: scrollController,
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(key: navbarKeys[0]),
-              // MAIN
-              Header(
-                onLogoTap: () {},
-                onMenuTap: () {
-                  scaffoldKey.currentState?.openEndDrawer();
-                },
-              ),
-              // const MainDesktop(),
-              const Main(),
-              // SKILLS
+      return Stack(
+        children: [
+          Scaffold(
+            key: scaffoldKey,
+            backgroundColor: CustomColor.scaffoldBg,
+            endDrawer: DrawerMobile(onNavItemTap: (int navIndex) {
+              // call function
+              scaffoldKey.currentState?.closeEndDrawer();
+              scrollToSection(navIndex);
+            }),
+            body: SingleChildScrollView(
+              controller: scrollController,
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  SizedBox(key: navbarKeys[0]),
+                  // MAIN
+                  Header(
+                    onLogoTap: () {},
+                    onMenuTap: () {
+                      scaffoldKey.currentState?.openEndDrawer();
+                    },
+                  ),
+                  // const MainDesktop(),
+                  const Main(),
+                  // SKILLS
 
-              Container(
-                key: navbarKeys[1],
-                width: screenWidth,
-                color: CustomColor.bgLight1,
-                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                child: const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    //title
-                    Text(
-                      "What I can do",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.whitePrimary,
-                      ),
+                  Container(
+                    key: navbarKeys[1],
+                    width: screenWidth,
+                    color: CustomColor.bgLight1,
+                    padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                    child: const Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        //title
+                        Text(
+                          "What I can do",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: CustomColor.whitePrimary,
+                          ),
+                        ),
+                        SizedBox(height: 50),
+                        // platforms and skills
+                        Skills(),
+                      ],
                     ),
-                    SizedBox(height: 50),
-                    // platforms and skills
-                    Skills(),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
-              // PROJECTS
-              ProjectsSection(key: navbarKeys[2]),
+                  ),
+                  const SizedBox(height: 30),
+                  // PROJECTS
+                  ProjectsSection(key: navbarKeys[2]),
 
-              const SizedBox(height: 30),
-              // CONTACT
-              ContactSection(key: navbarKeys[3]),
-              // FOOTER
-              const Footer(),
-            ],
+                  const SizedBox(height: 30),
+                  // CONTACT
+                  ContactSection(key: navbarKeys[3]),
+                  // FOOTER
+                  const Footer(),
+                ],
+              ),
+            ),
           ),
-        ),
+          Positioned(
+            top: 30.0,
+            right: 30.0,
+            child: IconButton(
+              icon: const Icon(Icons.menu, color: CustomColor.whitePrimary),
+              onPressed: () {
+                scaffoldKey.currentState?.openEndDrawer();
+              },
+            ),
+          ),
+        ],
       );
     });
   }
