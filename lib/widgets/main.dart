@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 
-class MainMobile extends StatelessWidget {
-  const MainMobile({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {

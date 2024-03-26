@@ -1,7 +1,6 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
-import 'package:personalcv/utils/project.utils.dart';
+import 'package:personalcv/utils/project_utils.dart';
+import 'package:personalcv/widgets/web_view_screen.dart';
 
 import '../constants/colors.dart';
 
@@ -63,7 +62,13 @@ class ProjectCardWidget extends StatelessWidget {
                 if (project.androidLink != null)
                   InkWell(
                     onTap: () {
-                      js.context.callMethod('open', [project.androidLink]);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              WebViewScreen(url: project.androidLink!),
+                        ),
+                      );
                     },
                     child: Image.asset('assets/android_icon.png', width: 19),
                   ),
@@ -72,7 +77,13 @@ class ProjectCardWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 6),
                     child: InkWell(
                       onTap: () {
-                        js.context.callMethod('open', [project.iosLink]);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                WebViewScreen(url: project.iosLink!),
+                          ),
+                        );
                       },
                       child: Image.asset('assets/ios_icon.png', width: 17),
                     ),
@@ -82,7 +93,13 @@ class ProjectCardWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 6),
                     child: InkWell(
                       onTap: () {
-                        js.context.callMethod('open', [project.webLink]);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                WebViewScreen(url: project.webLink!),
+                          ),
+                        );
                       },
                       child: Image.asset('assets/web_icon.png', width: 17),
                     ),

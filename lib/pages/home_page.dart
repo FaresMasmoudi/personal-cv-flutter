@@ -1,16 +1,15 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/colors.dart';
 import 'package:personalcv/constants/sns.links.dart';
 import 'package:personalcv/widgets/contact.section.dart';
-import 'package:personalcv/widgets/header.mobile.dart';
-import 'package:personalcv/widgets/main.mobile.dart';
-import 'package:personalcv/widgets/projects.section.dart';
+import 'package:personalcv/widgets/header.dart';
+import 'package:personalcv/widgets/main.dart';
+import 'package:personalcv/widgets/projects_section.dart';
 
-import '../widgets/drawer.mobile.dart';
+import '../widgets/drawer.dart';
 import '../widgets/footer.dart';
-import '../widgets/skills.mobile.dart';
+import '../widgets/skills.dart';
+import '../widgets/web_view_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,14 +44,14 @@ class _HomePageState extends State<HomePage> {
             children: [
               SizedBox(key: navbarKeys[0]),
               // MAIN
-              HeaderMobile(
+              Header(
                 onLogoTap: () {},
                 onMenuTap: () {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
               ),
               // const MainDesktop(),
-              const MainMobile(),
+              const Main(),
               // SKILLS
 
               Container(
@@ -74,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 50),
                     // platforms and skills
-                    SkillsMobile(),
+                    Skills(),
                   ],
                 ),
               ),
@@ -96,7 +95,12 @@ class _HomePageState extends State<HomePage> {
 
   void scrollToSection(int navIndex) {
     if (navIndex == 4) {
-      js.context.callMethod('open', [SnsLinks.cv]);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WebViewScreen(url: SnsLinks.cv),
+        ),
+      );
       return;
     }
     final key = navbarKeys[navIndex];

@@ -1,11 +1,10 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/size.dart';
+import 'package:personalcv/widgets/web_view_screen.dart';
 
 import '../constants/colors.dart';
 import '../constants/sns.links.dart';
-import 'custom.text.field.dart';
+import 'custom_text_field.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -68,27 +67,57 @@ class ContactSection extends StatelessWidget {
             children: [
               InkWell(
                   onTap: () {
-                    js.context.callMethod('open', [SnsLinks.github]);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: SnsLinks.github),
+                      ),
+                    );
                   },
                   child: Image.asset('assets/github.png', width: 28)),
               InkWell(
                   onTap: () {
-                    js.context.callMethod('open', [SnsLinks.linkedIn]);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: SnsLinks.linkedIn),
+                      ),
+                    );
                   },
                   child: Image.asset('assets/linkedin.png', width: 28)),
               InkWell(
                   onTap: () {
-                    js.context.callMethod('open', [SnsLinks.facebook]);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: SnsLinks.facebook),
+                      ),
+                    );
                   },
                   child: Image.asset('assets/facebook.png', width: 28)),
               InkWell(
                   onTap: () {
-                    js.context.callMethod('open', [SnsLinks.instagram]);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: SnsLinks.instagram),
+                      ),
+                    );
                   },
                   child: Image.asset('assets/instagram.png', width: 28)),
               InkWell(
                   onTap: () {
-                    js.context.callMethod('open', [SnsLinks.telegram]);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: SnsLinks.telegram),
+                      ),
+                    );
                   },
                   child: Image.asset('assets/telegram.png', width: 28)),
             ],

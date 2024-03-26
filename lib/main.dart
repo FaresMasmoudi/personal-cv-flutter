@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personalcv/pages/home.page.dart';
+import 'package:personalcv/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personalcv/widgets/project.card.dart';
+import 'package:personalcv/widgets/project_card.dart';
 
 import '../constants/colors.dart';
-import '../utils/project.utils.dart';
+import '../utils/project_utils.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});

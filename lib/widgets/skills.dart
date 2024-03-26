@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../constants/skill.items.dart';
 
-class SkillsMobile extends StatelessWidget {
-  const SkillsMobile({super.key});
+class Skills extends StatelessWidget {
+  const Skills({super.key});
 
   @override
   Widget build(BuildContext context) {
