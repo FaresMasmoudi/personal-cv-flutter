@@ -23,7 +23,7 @@ class Main extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             const Text(
-              "Bonjour, \nJe suis Fares Masmoudi\nÉtudiant Ingénieur\nPassionné par la technologie et l'innovation",
+              "Bonjour, \nJe suis Fares Masmoudi\nÉtudiant Ingénieur à l'IIT\nPassionné par les nouvelles technologies web\nDéveloppeur Full Stack\nSpring Boot + Angular",
               style: TextStyle(
                 fontSize: 24,
                 height: 1.5,

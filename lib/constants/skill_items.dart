@@ -1,53 +1,41 @@
 const List<Map> platformItems = [
   {
-    "img": "assets/android_icon.png",
-    "title": "Android Dev",
-  },
-  {
     "img": "assets/web_icon.png",
-    "title": "Web Dev",
+    "title": "Développement Web",
   },
   {
-    "img": "assets/ios_icon.png",
-    "title": "IOS Dev",
+    "img": "assets/reseaux.png",
+    "title": "Administration Réseaux",
   },
   {
-    "img": "assets/desktop_icon.png",
-    "title": "Desktop Dev",
+    "img": "assets/devops.jpg",
+    "title": "DevOps",
+  },
+  {
+    "img": "assets/sec_dep.png",
+    "title": "Sécurité et Déploiement",
   }
 ];
 
 const List<Map> skillItems = [
   {
-    "img": "assets/flutter.png",
-    "title": "Flutter",
+    "img": "assets/spring_boot.png",
+    "title": "Spring Boot",
   },
   {
-    "img": "assets/dart.png",
-    "title": "Dart",
-  },
-  {
-    "img": "assets/html5.png",
-    "title": "HTML5",
-  },
-  {
-    "img": "assets/css3.png",
-    "title": "CSS3",
+    "img": "assets/angular.png",
+    "title": "Angular",
   },
   {
     "img": "assets/javascript.png",
     "title": "JS",
   },
   {
-    "img": "assets/hugo.png",
-    "title": "Hugo",
-  },
-  {
     "img": "assets/docker.png",
     "title": "Docker",
   },
   {
-    "img": "assets/python.png",
-    "title": "Python",
-  }
+    "img": "assets/vmware.png",
+    "title": "Vmware",
+  },
 ];
