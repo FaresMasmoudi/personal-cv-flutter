@@ -2,18 +2,14 @@ import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/colors.dart';
-import 'package:personalcv/constants/size.dart';
 import 'package:personalcv/constants/sns.links.dart';
 import 'package:personalcv/widgets/contact.section.dart';
-import 'package:personalcv/widgets/header.desktop.dart';
 import 'package:personalcv/widgets/header.mobile.dart';
-import 'package:personalcv/widgets/main.desktop.dart';
 import 'package:personalcv/widgets/main.mobile.dart';
 import 'package:personalcv/widgets/projects.section.dart';
 
 import '../widgets/drawer.mobile.dart';
 import '../widgets/footer.dart';
-import '../widgets/skills.desktop.dart';
 import '../widgets/skills.mobile.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,13 +33,11 @@ class _HomePageState extends State<HomePage> {
       return Scaffold(
         key: scaffoldKey,
         backgroundColor: CustomColor.scaffoldBg,
-        endDrawer: constraints.maxWidth >= kMinDesktopWidth
-            ? null
-            : DrawerMobile(onNavItemTap: (int navIndex) {
-                // call function
-                scaffoldKey.currentState?.closeEndDrawer();
-                scrollToSection(navIndex);
-              }),
+        endDrawer: DrawerMobile(onNavItemTap: (int navIndex) {
+          // call function
+          scaffoldKey.currentState?.closeEndDrawer();
+          scrollToSection(navIndex);
+        }),
         body: SingleChildScrollView(
           controller: scrollController,
           scrollDirection: Axis.vertical,
@@ -51,22 +45,14 @@ class _HomePageState extends State<HomePage> {
             children: [
               SizedBox(key: navbarKeys[0]),
               // MAIN
-              if (constraints.maxWidth >= kMinDesktopWidth)
-                HeaderDesktop(onNavMenuItemTap: (int navIndex) {
-                  scrollToSection(navIndex);
-                })
-              else
-                HeaderMobile(
-                  onLogoTap: () {},
-                  onMenuTap: () {
-                    scaffoldKey.currentState?.openEndDrawer();
-                  },
-                ),
+              HeaderMobile(
+                onLogoTap: () {},
+                onMenuTap: () {
+                  scaffoldKey.currentState?.openEndDrawer();
+                },
+              ),
               // const MainDesktop(),
-              if (constraints.maxWidth >= kMinDesktopWidth)
-                const MainDesktop()
-              else
-                const MainMobile(),
+              const MainMobile(),
               // SKILLS
 
               Container(
@@ -74,11 +60,11 @@ class _HomePageState extends State<HomePage> {
                 width: screenWidth,
                 color: CustomColor.bgLight1,
                 padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                child: Column(
+                child: const Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     //title
-                    const Text(
+                    Text(
                       "What I can do",
                       style: TextStyle(
                         fontSize: 24,
@@ -86,12 +72,9 @@ class _HomePageState extends State<HomePage> {
                         color: CustomColor.whitePrimary,
                       ),
                     ),
-                    const SizedBox(height: 50),
+                    SizedBox(height: 50),
                     // platforms and skills
-                    if (constraints.maxWidth >= kMedDesktopWidth)
-                      const SkillsDesktop()
-                    else
-                      const SkillsMobile(),
+                    SkillsMobile(),
                   ],
                 ),
               ),
