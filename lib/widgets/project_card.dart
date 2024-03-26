@@ -16,7 +16,7 @@ class ProjectCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
-      height: 290,
+      height: 350,
       width: 260,
       decoration: BoxDecoration(
         color: CustomColor.bgLight2,
@@ -54,56 +54,23 @@ class ProjectCardWidget extends StatelessWidget {
             child: Row(
               children: [
                 const Text(
-                  'Availble on',
+                  'Voir sur Github',
                   style: TextStyle(
                       color: CustomColor.yellowSecondary, fontSize: 10),
                 ),
                 const Spacer(),
-                if (project.androidLink != null)
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              WebViewScreen(url: project.androidLink!),
-                        ),
-                      );
-                    },
-                    child: Image.asset('assets/android_icon.png', width: 19),
-                  ),
-                if (project.iosLink != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                WebViewScreen(url: project.iosLink!),
-                          ),
-                        );
-                      },
-                      child: Image.asset('assets/ios_icon.png', width: 17),
-                    ),
-                  ),
-                if (project.webLink != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                WebViewScreen(url: project.webLink!),
-                          ),
-                        );
-                      },
-                      child: Image.asset('assets/web_icon.png', width: 17),
-                    ),
-                  ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            WebViewScreen(url: project.githubLink!),
+                      ),
+                    );
+                  },
+                  child: Image.asset('assets/github.png', width: 19),
+                ),
               ],
             ),
           ),

@@ -9,11 +9,9 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-        height: screenHeight,
-        constraints: const BoxConstraints(minHeight: 560),
+        constraints: const BoxConstraints(minHeight: 700),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +23,7 @@ class Main extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             const Text(
-              "Hi, \nI'm Fares Masmoudi\nA Software Engineering Student\nWith a strong passion for technology and innovation",
+              "Bonjour, \nJe suis Fares Masmoudi\nÉtudiant Ingénieur\nPassionné par la technologie et l'innovation",
               style: TextStyle(
                 fontSize: 24,
                 height: 1.5,
@@ -33,7 +31,7 @@ class Main extends StatelessWidget {
                 color: CustomColor.whitePrimary,
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
             SizedBox(
               width: 190,
               child: ElevatedButton(
@@ -41,10 +39,6 @@ class Main extends StatelessWidget {
                 child: const Text("Contact Me"),
               ),
             ),
-
-            //intro text
-
-            // contact button
           ],
         ));
   }

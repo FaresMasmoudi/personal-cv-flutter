@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:personalcv/constants/size.dart';
 import 'package:personalcv/widgets/web_view_screen.dart';
 
 import '../constants/colors.dart';
@@ -27,20 +26,26 @@ class ContactSection extends StatelessWidget {
           const SizedBox(height: 50),
           ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 700, maxHeight: 100),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth >= kMinDesktopWidth) {
-                    return buildNameEmailFieldDesktop();
-                  } else {
-                    return buildNameEmailFieldMobile();
-                  }
-                },
+              child: const Column(
+                children: [
+                  // nom
+                  Flexible(
+                      child: CustomTextField(
+                    hintText: 'Votre nom',
+                  )),
+                  SizedBox(height: 15),
+                  //email
+                  Flexible(
+                      child: CustomTextField(
+                    hintText: 'Votre email',
+                  ))
+                ],
               )),
           const SizedBox(height: 15),
           // message
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 700),
-            child: CustomTextField(
+            child: const CustomTextField(
               hintText: 'Votre message',
               maxLines: 16,
             ),
@@ -136,24 +141,6 @@ class ContactSection extends StatelessWidget {
           hintText: 'Votre nom',
         )),
         const SizedBox(width: 15),
-        //email
-        Flexible(
-            child: CustomTextField(
-          hintText: 'Votre email',
-        ))
-      ],
-    );
-  }
-
-  Column buildNameEmailFieldMobile() {
-    return Column(
-      children: [
-        // nom
-        Flexible(
-            child: CustomTextField(
-          hintText: 'Votre nom',
-        )),
-        const SizedBox(height: 15),
         //email
         Flexible(
             child: CustomTextField(

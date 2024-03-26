@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personalcv/constants/colors.dart';
 import 'package:personalcv/constants/contact_links.dart';
-import 'package:personalcv/widgets/contact.section.dart';
+import 'package:personalcv/widgets/contact_section.dart';
 import 'package:personalcv/widgets/header.dart';
 import 'package:personalcv/widgets/main.dart';
 import 'package:personalcv/widgets/projects_section.dart';
@@ -45,16 +45,14 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   SizedBox(key: navbarKeys[0]),
-                  // MAIN
+                  // Accueil
                   Header(
                     onLogoTap: () {},
-                    onMenuTap: () {
-                      scaffoldKey.currentState?.openEndDrawer();
-                    },
                   ),
-                  // const MainDesktop(),
+
                   const Main(),
-                  // SKILLS
+
+                  // Compétences
 
                   Container(
                     key: navbarKeys[1],
@@ -66,34 +64,34 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         //title
                         Text(
-                          "What I can do",
+                          "Mes compétences",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: CustomColor.whitePrimary,
                           ),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 20),
                         // platforms and skills
                         Skills(),
                       ],
                     ),
                   ),
                   const SizedBox(height: 30),
-                  // PROJECTS
+                  // Projets
                   ProjectsSection(key: navbarKeys[2]),
 
                   const SizedBox(height: 30),
-                  // CONTACT
+                  // Contact
                   ContactSection(key: navbarKeys[3]),
-                  // FOOTER
+                  // Footer
                   const Footer(),
                 ],
               ),
             ),
           ),
           Positioned(
-            top: 30.0,
+            top: 50.0,
             right: 30.0,
             child: IconButton(
               icon: const Icon(Icons.menu, color: CustomColor.whitePrimary),

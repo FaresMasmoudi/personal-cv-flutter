@@ -4,26 +4,20 @@ import 'package:personalcv/widgets/site_logo.dart';
 import '../styles/style.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key, this.onLogoTap, this.onMenuTap});
+  const Header({super.key, this.onLogoTap});
 
   final VoidCallback? onLogoTap;
-  final VoidCallback? onMenuTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
+      margin: const EdgeInsets.fromLTRB(40, 50, 20, 5),
       decoration: kHeaderDecoration,
       child: Row(
         children: [
           SiteLogo(
             onTap: onLogoTap,
-          ),
-          const Spacer(),
-          IconButton(
-            onPressed: onMenuTap,
-            icon: const Icon(Icons.menu),
           ),
           const SizedBox(width: 15),
         ],
