@@ -1,10 +1,10 @@
-class ProjectUtils {
+class Project {
   final String image;
   final String title;
   final String subtitle;
   final String? githubLink;
 
-  ProjectUtils({
+  Project({
     required this.image,
     required this.title,
     required this.subtitle,
@@ -13,27 +13,32 @@ class ProjectUtils {
 }
 
 // Mes projets
-List<ProjectUtils> workProjectUtils = [
-  ProjectUtils(
-    image: 'assets/projects/w01.png',
-    title: 'English Brain Craft',
+List<Project> mesProjets = [
+  Project(
+    image: 'assets/projects/parcinfo.png',
+    title: 'Gestion de Parc Informatique',
     subtitle:
-        'This is an English learning app for students to learn English through various methods.',
-    githubLink:
-        'https://play.google.com/store/apps/details?id=kr.co.evolcano.donotstudy',
+        'Projet Fullstack pour la gestion de parc informatique d\'une entreprise.',
+    githubLink: 'https://github.com/FaresMasmoudi/parc-informatique-angular',
   ),
-  ProjectUtils(
-    image: 'assets/projects/w02.png',
-    title: 'Online Shop Web App',
+  Project(
+    image: 'assets/projects/huileolive.png',
+    title: 'Gestion de chaine de production d\'huile d\'olive',
     subtitle:
-        'This is a responsive online shop web application for car engine oil.',
-    githubLink: 'https://www.elo.best',
+        'Projet Spring Boot + Angular pour la gestion de tracabilité d\'huile d\'olive.',
+    githubLink: 'https://github.com/FaresMasmoudi/olivefront',
   ),
-  ProjectUtils(
-    image: 'assets/projects/w03.jpeg',
-    title: 'Advertisement Management System',
+  Project(
+    image: 'assets/projects/labo.png',
+    title: 'Gestion de laboratoire',
+    subtitle: 'Projet angular pour la gestion de laboratoire de recherche.',
+    githubLink: 'https://github.com/FaresMasmoudi/lab-management-front',
+  ),
+  Project(
+    image: 'assets/projects/djagora.png',
+    title: 'Djagora Talents',
     subtitle:
-        'This is an Advertisement Management System to buy, sell, and manage advertisement.',
-    githubLink: 'https://www.externally.unavailable.project',
+        'Interface web pour les talents de Djagora pour les aider à trouver des opportunités de travail.',
+    githubLink: 'https://github.com/FaresMasmoudi/DjagoraSkills',
   ),
 ];

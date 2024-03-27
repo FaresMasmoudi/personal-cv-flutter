@@ -10,7 +10,7 @@ class ProjectCardWidget extends StatelessWidget {
     required this.project,
   });
 
-  final ProjectUtils project;
+  final Project project;
 
   @override
   Widget build(BuildContext context) {
