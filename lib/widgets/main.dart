@@ -35,8 +35,8 @@ class Main extends StatelessWidget {
             SizedBox(
               width: 190,
               child: ElevatedButton(
-                onPressed: () {},
-                child: const Text("Contact Me"),
+                onPressed: () => {},
+                child: const Text("Contactez Moi"),
               ),
             ),
           ],
