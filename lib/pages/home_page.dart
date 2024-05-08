@@ -7,6 +7,7 @@ import 'package:personalcv/widgets/main.dart';
 import 'package:personalcv/widgets/projects_section.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/map_section.dart';
 import '../widgets/skills.dart';
 import '../widgets/web_view_screen.dart';
 
@@ -83,6 +84,9 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 30),
                   // Contact
                   ContactSection(key: navbarKeys[3]),
+                  const SizedBox(height: 30),
+                  MapSection(),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),
